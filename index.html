@@ -13,8 +13,7 @@
     <nav class="navbar">
         <div class="nav-links">
             <a href="#about">About</a>
-            <a href="#certifications">Certifications</a>
-            <a href="#expertise">Expertise</a>
+            <a href="#experience">Experience</a>
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
         </div>
@@ -24,7 +23,7 @@
         <div class="hero-content">
             <div class="hero-text">
                 <h1>Vidhatra Shukla</h1>
-                <p class="tagline">Product Manager</p>
+                <p class="tagline">Solving problems with tech</p>
                 <p class="tagline-sub">BITS Pilani | Building products that matter</p>
                 <a href="#contact" class="cta-button">Get in Touch</a>
             </div>
@@ -59,15 +58,7 @@
         </div>
     </section>
 
-    <section id="certifications" class="section bg-light">
-        <div class="container">
-            <h2 class="section-title">Certifications</h2>
-            <div class="cert-grid" id="cert-list">
-            </div>
-        </div>
-    </section>
-
-    <section id="expertise" class="section">
+    <section id="experience" class="section bg-light">
         <div class="container">
             <h2 class="section-title">From Field to Product</h2>
             <p class="section-subtitle">How my background translates to tech & product expertise</p>
@@ -92,7 +83,7 @@
         </div>
     </section>
 
-    <section id="projects" class="section bg-light">
+    <section id="projects" class="section">
         <div class="container">
             <h2 class="section-title">Projects</h2>
             <p class="section-subtitle">A glimpse of my work on the field</p>
@@ -125,6 +116,12 @@
                     </div>
                 </div>
             </div>
+            
+            <h3 class="subsection-title">Certifications</h3>
+            <div class="cert-slider">
+                <div class="cert-track" id="cert-track">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -147,7 +144,7 @@
 
     <footer>
         <p>© 2026 Vidhatra Shukla. All rights reserved.</p>
-        <p><a href="old-portfolios/">Here's the link to my previous portfolio :)</a></p>
+        <p><a href="old-portfolios/">Here's the link for my old portfolios</a></p>
     </footer>
 
     <script src="certificates.js"></script>
@@ -161,17 +158,21 @@
             });
         });
 
-        const certList = document.getElementById('cert-list');
+        const certTrack = document.getElementById('cert-track');
         certificates.forEach(cert => {
-            const certCard = document.createElement('div');
+            const certCard = document.createElement('a');
             certCard.className = 'cert-card';
+            certCard.href = cert.url;
+            certCard.target = '_blank';
             certCard.innerHTML = `
                 <h3>${cert.name}</h3>
                 <p>${cert.issuer}</p>
-                <a href="assets/images/${cert.file}" download class="cert-download">Download Certificate</a>
+                <span class="cert-icon">↓</span>
             `;
-            certList.appendChild(certCard);
+            certTrack.appendChild(certCard);
         });
+
+        certTrack.innerHTML += certTrack.innerHTML;
     </script>
 </body>
 </html>

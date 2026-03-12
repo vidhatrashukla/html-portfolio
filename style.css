@@ -223,48 +223,90 @@ body {
     font-weight: 500;
 }
 
-/* Certifications */
-.cert-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem;
+/* Certifications - Horizontal Moving Band */
+.cert-slider {
+    overflow: hidden;
+    width: 100%;
+    padding: 2rem 0;
+    background: var(--bg-secondary);
+    margin: 0 -2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.cert-track {
+    display: flex;
+    gap: 1rem;
+    width: max-content;
+    animation: scroll 45s linear infinite;
+}
+
+.cert-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
 .cert-card {
+    flex: 0 0 auto;
     background: var(--bg-primary);
-    padding: 2rem;
+    padding: 0.5rem 1.25rem;
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: 4px;
+    white-space: nowrap;
     transition: all 0.3s ease;
+    text-decoration: none;
+    color: var(--text-primary);
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
 }
 
 .cert-card:hover {
     border-color: var(--text-primary);
-    transform: translateY(-4px);
-}
-
-.cert-img {
-    width: 100%;
-    height: auto;
-    border-radius: 4px;
-}
-
-.cert-icon {
-    font-size: 1.5rem;
-    display: block;
-    margin-bottom: 1rem;
+    background: var(--text-primary);
+    color: var(--bg-primary);
 }
 
 .cert-card h3 {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin: 0;
+    display: inline;
 }
 
 .cert-card p {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     color: var(--text-secondary);
-    margin-bottom: 1rem;
+    margin: 0;
+    display: inline;
+    margin-left: 0.5rem;
+}
+
+.cert-card:hover p {
+    color: var(--bg-primary);
+    opacity: 0.8;
+}
+
+.cert-icon {
+    margin-left: 0.5rem;
+    font-size: 0.7rem;
+    opacity: 0.6;
+}
+
+.cert-card:hover .cert-icon {
+    opacity: 1;
+}
+
+.subsection-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
 }
 
 .cert-download {
