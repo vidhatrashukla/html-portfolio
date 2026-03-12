@@ -400,28 +400,22 @@ body {
     gap: 2rem;
 }
 
-.contact-link {
+.contact-icon {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    text-decoration: none;
-    color: var(--text-primary);
-    font-size: 1rem;
-    font-weight: 500;
-    padding: 1rem 1.5rem;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: 50%;
+    color: var(--text-primary);
     transition: all 0.3s ease;
 }
 
-.contact-link:hover {
+.contact-icon:hover {
     border-color: var(--text-primary);
-    background: var(--bg-secondary);
-}
-
-.link-icon {
-    font-weight: 600;
-    font-size: 1.1rem;
+    background: var(--text-primary);
+    color: var(--bg-primary);
 }
 
 /* Footer */
