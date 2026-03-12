@@ -154,7 +154,7 @@ body {
 
 /* Sections */
 .section {
-    padding: 6rem 2rem;
+    padding: 2rem 2rem;
 }
 
 .container {
@@ -397,25 +397,31 @@ body {
 .contact-links {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
-.contact-icon {
+.contact-link {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 48px;
     height: 48px;
-    border: 1px solid var(--border);
-    border-radius: 50%;
-    color: var(--text-primary);
-    transition: all 0.3s ease;
+    text-decoration: none;
+    color: #1a1a1a;
+    border: 1px solid #1a1a1a;
+    font-weight: 600;
+    font-size: 1.2rem;
+    transition: all 0.2s ease;
 }
 
-.contact-icon:hover {
-    border-color: var(--text-primary);
-    background: var(--text-primary);
-    color: var(--bg-primary);
+.contact-link svg {
+    width: 22px;
+    height: 22px;
+}
+
+.contact-link:hover {
+    background: #1a1a1a;
+    color: #ffffff;
 }
 
 /* Footer */
@@ -476,4 +482,99 @@ footer a:hover {
     .nav-links a {
         font-size: 0.8rem;
     }
+}
+
+/* Volunteering */
+.volunteering-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.volunteer-card {
+    background: var(--bg-primary);
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.volunteer-card:hover {
+    border-color: var(--text-primary);
+}
+
+.volunteer-card h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.volunteer-role {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+}
+
+.volunteer-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Hobbies & Travel */
+.india-map-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.india-map {
+    width: 100%;
+    height: auto;
+}
+
+.india-map .state {
+    fill: #e0e0e0;
+    stroke: #1a1a1a;
+    stroke-width: 1;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.india-map .state:hover,
+.india-map .state.visited {
+    fill: #1a1a1a;
+}
+
+.india-map .state:hover {
+    opacity: 0.8;
+}
+
+.map-legend {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.legend-color {
+    width: 16px;
+    height: 16px;
+    border-radius: 2px;
+}
+
+.legend-color.visited {
+    background: #1a1a1a;
+}
+
+.legend-color.not-visited {
+    background: #e0e0e0;
+    border: 1px solid #1a1a1a;
 }
