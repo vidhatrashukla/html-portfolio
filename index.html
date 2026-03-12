@@ -147,8 +147,30 @@
         <p><a href="old-portfolios/">Here's the link for my old portfolios</a></p>
     </footer>
 
-    <script src="certificates.js"></script>
     <script>
+        const certificates = [
+            {
+                name: "AI Python for Beginners",
+                issuer: "DeepLearning.AI",
+                url: "https://learn.deeplearning.ai/courses/ai-python-for-beginners"
+            },
+            {
+                name: "Build with Andrew",
+                issuer: "DeepLearning.AI",
+                url: "https://learn.deeplearning.ai/courses/build-with-andrew"
+            },
+            {
+                name: "Generative AI for Everyone",
+                issuer: "DeepLearning.AI",
+                url: "https://learn.deeplearning.ai/courses/generative-ai-for-everyone"
+            },
+            {
+                name: "Orchestrating Workflows for GenAI",
+                issuer: "DeepLearning.AI",
+                url: "https://learn.deeplearning.ai/courses/orchestrating-workflows-for-genai-applications"
+            }
+        ];
+
         document.addEventListener('DOMContentLoaded', function() {
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
@@ -160,17 +182,13 @@
             });
 
             const certTrack = document.getElementById('cert-track');
-            if (certTrack && typeof certificates !== 'undefined') {
+            if (certTrack) {
                 certificates.forEach(cert => {
                     const certCard = document.createElement('a');
                     certCard.className = 'cert-card';
                     certCard.href = cert.url;
                     certCard.target = '_blank';
-                    certCard.innerHTML = `
-                        <h3>${cert.name}</h3>
-                        <p>${cert.issuer}</p>
-                        <span class="cert-icon">↓</span>
-                    `;
+                    certCard.innerHTML = '<h3>' + cert.name + '</h3><p>' + cert.issuer + '</p><span class="cert-icon">↓</span>';
                     certTrack.appendChild(certCard);
                 });
 
