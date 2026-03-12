@@ -149,30 +149,34 @@
 
     <script src="certificates.js"></script>
     <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
                 });
             });
-        });
 
-        const certTrack = document.getElementById('cert-track');
-        certificates.forEach(cert => {
-            const certCard = document.createElement('a');
-            certCard.className = 'cert-card';
-            certCard.href = cert.url;
-            certCard.target = '_blank';
-            certCard.innerHTML = `
-                <h3>${cert.name}</h3>
-                <p>${cert.issuer}</p>
-                <span class="cert-icon">↓</span>
-            `;
-            certTrack.appendChild(certCard);
-        });
+            const certTrack = document.getElementById('cert-track');
+            if (certTrack && typeof certificates !== 'undefined') {
+                certificates.forEach(cert => {
+                    const certCard = document.createElement('a');
+                    certCard.className = 'cert-card';
+                    certCard.href = cert.url;
+                    certCard.target = '_blank';
+                    certCard.innerHTML = `
+                        <h3>${cert.name}</h3>
+                        <p>${cert.issuer}</p>
+                        <span class="cert-icon">↓</span>
+                    `;
+                    certTrack.appendChild(certCard);
+                });
 
-        certTrack.innerHTML += certTrack.innerHTML;
+                certTrack.innerHTML += certTrack.innerHTML;
+            }
+        });
     </script>
 </body>
 </html>
